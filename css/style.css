@@ -1,0 +1,130 @@
+:root {
+    /* Color Variables */
+    --white: #faf9f6;
+    --light-gray: #d3d3d3;
+    --dark-gray: #3a3b3c;
+
+    /* Theme Colors: https://coolors.co/palette/355070-6d597a-b56576-e56b6f-eaac8b */
+    --theme1: #355070;
+    --theme2: #6d597a;
+    --theme3: #b56576;
+    --theme4: #e56b6f;
+    --theme5: #eaac8b;
+}
+
+/* Global Changes */
+html, body {
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-gray);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* Top Navigation Bar */
+#top-nav {
+    background: var(--theme5);
+    padding: 0 2rem;
+    height: 100%;
+    min-height: 4rem;
+    overflow: hidden;
+
+    transition: height 0.5s ease-in-out;
+}
+
+#top-nav .menu {
+    justify-content: space-between;
+}
+
+#top-nav .brand {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+    display: block;
+}
+
+#top-nav .hamburger-menu {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    cursor: pointer;
+
+    /* Only displays when screen has small width.*/
+    display: none;
+}
+
+#top-nav .hamburger-menu i {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.15rem 0;
+    font-size: 1.6rem;
+    color: var(--dark-gray)
+}
+
+html.collapsed #top-nav {
+    height: 0;
+}
+
+html:not(.collapsed), html:not(.collapsed) body {
+    overflow: hidden
+}
+
+html:not(.collapsed) .hamburger-menu {
+    rotation: 90deg;
+}
+
+#top-nav ul {
+    display: flex;
+    margin: 0;
+}
+
+#top-nav ul li {
+    padding: 1.6rem 1rem;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+#top-nav ul li:hover {
+    background-color: var(--theme1);
+
+    --transition: background-color .5s linear;
+    -webkit-transition: var(--transition);
+    -moz-transition: var(--transition);
+    -ms-transition: var(--transition);
+    transition: var(--transition);
+}
+
+#top-nav ul li:hover a {
+    color: var(--white);
+}
+
+#top-nav .socials {
+    padding: 1.4rem 0;
+}
+
+#top-nav .socials i:hover {
+    color: var(--theme2);
+}
+
+@media only screen and (max-width: 750px) {
+    #top-nav .menu, #top-nav ul {
+        flex-direction: column;
+    }
+
+    #top-nav .hamburger-menu {
+        display: initial;
+    }
+}
